@@ -1,0 +1,49 @@
+# Arquivos e diretórios que NÃO devem ser publicados no NPM
+
+# Código fonte (já compilado em dist/)
+src/
+
+# Testes
+tests/
+*.test.js
+vitest.config.js
+coverage/
+
+# Exemplos
+examples/
+
+# Documentação
+docs/
+SUMMARY.md
+PUBLISHING.md
+QUICK_START.md
+
+# GitHub
+.github/
+
+# Editor
+.vscode/
+.idea/
+
+# Config files
+.eslintrc.cjs
+.prettierrc
+vite.config.js
+jsconfig.json
+
+# Git
+.git/
+.gitignore
+
+# Node
+node_modules/
+
+# Build temporários
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db

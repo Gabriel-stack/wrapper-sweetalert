@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetAlert Wrapper - Exemplo Simples</title>
+    <link rel="stylesheet" href="../dist/sweetalert-wrapper.standalone.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: white; text-align: center; margin-bottom: 10px; font-size: 2.5rem; }
+        .subtitle { color: rgba(255, 255, 255, 0.9); text-align: center; margin-bottom: 40px; font-size: 1.1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+        .card h2 { color: #333; margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .card h2::before { content: '🎯'; }
+        .btn {
+            width: 100%; padding: 12px 20px; margin: 8px 0; border: none; border-radius: 8px;
+            font-size: 1rem; cursor: pointer; transition: all 0.3s; font-weight: 600;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+        .btn-success { background: #10b981; color: white; }
+        .btn-success:hover { background: #059669; }
+        .btn-error { background: #ef4444; color: white; }
+        .btn-error:hover { background: #dc2626; }
+        .btn-warning { background: #f59e0b; color: white; }
+        .btn-warning:hover { background: #d97706; }
+        .btn-info { background: #3b82f6; color: white; }
+        .btn-info:hover { background: #2563eb; }
+        .btn-question { background: #8b5cf6; color: white; }
+        .btn-question:hover { background: #7c3aed; }
+        .btn-dark { background: #1f2937; color: white; }
+        .btn-dark:hover { background: #111827; }
+        .btn-light { background: #f3f4f6; color: #1f2937; }
+        .btn-light:hover { background: #e5e7eb; }
+        .info-box {
+            background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px; padding: 20px; color: white; margin-bottom: 30px;
+        }
+        .info-box h3 { margin-bottom: 10px; }
+        .info-box ul { list-style: none; padding-left: 0; }
+        .info-box li { padding: 5px 0; }
+        .info-box li::before { content: '✓ '; color: #10b981; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 SweetAlert Wrapper</h1>
+        <p class="subtitle">API em Inglês · Textos em Português</p>
+
+        <div class="info-box">
+            <h3>📦 Características:</h3>
+            <ul>
+                <li>API em inglês (padrão internacional)</li>
+                <li>Textos em português (botões, mensagens)</li>
+                <li>Arquivo único com SweetAlert2 incluído</li>
+                <li>Suporte a temas (claro/escuro)</li>
+                <li>Merge de props para personalização</li>
+                <li>Proteção contra XSS</li>
+            </ul>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Notificações</h2>
+                <button class="btn btn-success" onclick="testSuccess()">✓ Sucesso</button>
+                <button class="btn btn-error" onclick="testError()">✗ Erro</button>
+                <button class="btn btn-warning" onclick="testWarning()">⚠ Aviso</button>
+                <button class="btn btn-info" onclick="testInfo()">ℹ Info</button>
+                <button class="btn btn-question" onclick="testConfirm()">? Confirmar</button>
+            </div>
+
+            <div class="card">
+                <h2>Toasts (Rápidos)</h2>
+                <button class="btn btn-success" onclick="testToastSuccess()">🎉 Toast Sucesso</button>
+                <button class="btn btn-error" onclick="testToastError()">💥 Toast Erro</button>
+                <button class="btn btn-warning" onclick="testToastWarning()">⚡ Toast Aviso</button>
+                <button class="btn btn-info" onclick="testToastInfo()">💡 Toast Info</button>
+            </div>
+
+            <div class="card">
+                <h2>Múltiplos Erros</h2>
+                <button class="btn btn-error" onclick="testErrors()">📋 Lista de Erros</button>
+                <button class="btn btn-error" onclick="testValidationErrors()">🔍 Erros de Validação</button>
+            </div>
+
+            <div class="card">
+                <h2>Recursos Extras</h2>
+                <button class="btn btn-info" onclick="testInput()">⌨️ Input</button>
+                <button class="btn btn-dark" onclick="testLoading()">⏳ Loading</button>
+                <button class="btn btn-question" onclick="testCustom()">🎨 Personalizado</button>
+            </div>
+
+            <div class="card">
+                <h2>Configuração</h2>
+                <button class="btn btn-info" onclick="testConfig()">⚙️ Config Global</button>
+                <button class="btn btn-success" onclick="testMergeProps()">🔧 Merge de Props</button>
+            </div>
+
+            <div class="card">
+                <h2>Tema</h2>
+                <button class="btn btn-dark" onclick="toggleTheme('dark')">🌙 Tema Escuro</button>
+                <button class="btn btn-light" onclick="toggleTheme('light')">☀️ Tema Claro</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../dist/sweetalert-wrapper.standalone.iife.js"></script>
+    <script>
+        function testSuccess() {
+            sweetAlert.success('Sucesso!', 'Operação realizada com sucesso');
+        }
+        function testError() {
+            sweetAlert.error('Erro!', 'Algo deu errado no processo');
+        }
+        function testWarning() {
+            sweetAlert.warning('Atenção!', 'Esta ação requer cuidado');
+        }
+        function testInfo() {
+            sweetAlert.info('Informação', 'Aqui está uma dica útil para você');
+        }
+        function testConfirm() {
+            sweetAlert.confirm('Tem certeza?', 'Você não poderá desfazer esta ação')
+                .then(result => {
+                    if (result.isConfirmed) sweetAlert.toastSuccess('Confirmado!');
+                    else if (result.isDismissed) sweetAlert.toastInfo('Cancelado!');
+                });
+        }
+        function testToastSuccess() {
+            sweetAlert.toastSuccess('Salvo com sucesso!');
+        }
+        function testToastError() {
+            sweetAlert.toastError('Erro ao processar!');
+        }
+        function testToastWarning() {
+            sweetAlert.toastWarning('Atenção necessária!');
+        }
+        function testToastInfo() {
+            sweetAlert.toastInfo('Informação rápida!');
+        }
+        function testErrors() {
+            sweetAlert.errors('Erros Encontrados', [
+                'O nome é obrigatório',
+                'O email deve ser válido',
+                'A senha deve ter no mínimo 8 caracteres',
+                'Os termos devem ser aceitos'
+            ]);
+        }
+        function testValidationErrors() {
+            sweetAlert.validationErrors({
+                email: ['Email é obrigatório', 'Formato de email inválido'],
+                password: ['Senha é obrigatória', 'Senha deve ter no mínimo 8 caracteres'],
+                name: ['Nome é obrigatório']
+            });
+        }
+        function testInput() {
+            sweetAlert.input('Digite seu nome', 'text', {
+                inputPlaceholder: 'Seu nome completo',
+                inputValidator: (value) => {
+                    if (!value) return 'Você precisa digitar algo!';
+                }
+            }).then(result => {
+                if (result.value) sweetAlert.toastSuccess(`Olá, ${result.value}!`);
+            });
+        }
+        function testLoading() {
+            sweetAlert.loading('Processando dados...');
+            setTimeout(() => {
+                sweetAlert.close();
+                sweetAlert.toastSuccess('Processamento concluído!');
+            }, 2500);
+        }
+        function testCustom() {
+            sweetAlert.custom({
+                title: 'Alerta Personalizado',
+                html: '<b>Texto em negrito</b><br><i>Texto em itálico</i><br><code>código</code>',
+                imageUrl: 'https://placekitten.com/200/200',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Imagem personalizada',
+                confirmButtonText: 'Entendi!',
+                confirmButtonColor: '#8b5cf6'
+            });
+        }
+        function testConfig() {
+            sweetAlert.config({ timer: 2000, timerProgressBar: true, showCloseButton: true });
+            sweetAlert.toastInfo('Configuração aplicada! Próximos alertas terão timer.');
+            setTimeout(() => {
+                sweetAlert.config({ timer: null, timerProgressBar: false, showCloseButton: false });
+            }, 3000);
+        }
+        function testMergeProps() {
+            sweetAlert.success('Props Personalizadas', 'Este alerta tem width e background customizados', {
+                width: 600,
+                background: '#f0f9ff',
+                confirmButtonColor: '#3b82f6',
+                timer: 5000,
+                timerProgressBar: true
+            });
+        }
+        function toggleTheme(theme) {
+            sweetAlert.setTheme(theme);
+            sweetAlert.toastInfo(`Tema ${theme === 'dark' ? 'escuro' : 'claro'} ativado!`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* Tema Claro */
+[data-swal-theme="light"] .swal2-popup {
+  background: #ffffff;
+  color: #2d3748;
+}
+
+[data-swal-theme="light"] .swal2-confirm {
+  background-color: #3182ce !important;
+}
+
+[data-swal-theme="light"] .swal2-cancel {
+  background-color: #718096 !important;
+}
+
+/* Tema Escuro */
+[data-swal-theme="dark"] .swal2-popup {
+  background: #2d3748;
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+}
+
+[data-swal-theme="dark"] .swal2-title {
+  color: #e2e8f0;
+}
+
+[data-swal-theme="dark"] .swal2-html-container {
+  color: #cbd5e0;
+}
+
+[data-swal-theme="dark"] .swal2-confirm {
+  background-color: #4299e1 !important;
+}
+
+[data-swal-theme="dark"] .swal2-cancel {
+  background-color: #718096 !important;
+}
+
+[data-swal-theme="dark"] .swal2-input,
+[data-swal-theme="dark"] .swal2-textarea {
+  background: #1a202c;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+[data-swal-theme="dark"] .swal2-input:focus,
+[data-swal-theme="dark"] .swal2-textarea:focus {
+  border-color: #4299e1;
+}
+
+/* Animações personalizadas */
+.swal2-show {
+  animation: swal2-show 0.3s;
+}
+
+.swal2-hide {
+  animation: swal2-hide 0.15s forwards;
+}
+
+@keyframes swal2-show {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  45% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes swal2-hide {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Acessibilidade */
+.swal2-popup:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+.swal2-confirm:focus,
+.swal2-cancel:focus,
+.swal2-deny:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Estilos para listas de erros */
+.swal2-html-container ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.swal2-html-container li {
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+/* Toast personalizados */
+.swal2-toast {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-swal-theme="dark"] .swal2-toast {
+  background: #2d3748;
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+}
