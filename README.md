@@ -14,10 +14,8 @@ Wrapper **simples e direto** para SweetAlert2
 3. [API Completa](#-api-completa)
 4. [Configuração](#️-configuração)
 5. [Exemplos Práticos](#-exemplos-práticos)
-6. [Tamanhos e Versões](#-tamanhos-e-versões)
-7. [Desenvolvimento](#-desenvolvimento)
 
-## 📦 Instalação
+## Instalação
 
 ### Opção 1: Versão Standalone (Recomendada)
 
@@ -48,7 +46,7 @@ npm install sweetalert2
 
 ---
 
-## 🚀 Uso Rápido
+## Uso Rápido
 
 ```javascript
 // Notificações básicas
@@ -71,7 +69,7 @@ sweetAlert.toastError('Erro ao processar!');
 ```
 
 ---
-
+  
 ## API Completa
 
 ### Notificações
