@@ -1,5 +1,6 @@
 # 🎯 SweetAlert Wrapper
 
+
 Wrapper **simples e direto** para SweetAlert2
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -69,7 +70,7 @@ sweetAlert.toastError('Erro ao processar!');
 ```
 
 ---
-  
+
 ## API Completa
 
 ### Notificações
