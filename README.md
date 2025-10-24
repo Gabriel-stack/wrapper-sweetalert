@@ -3,7 +3,6 @@
 
 Wrapper **simples e direto** para SweetAlert2
 
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](package.json)
 
